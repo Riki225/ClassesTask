@@ -22,6 +22,7 @@ namespace Task1
             Console.WriteLine(CookieColour.green);
             Console.WriteLine(CookieColour.blue);
             Console.WriteLine(CookieColour.name);
+            Console.WriteLine("*******************************************");
 
         }
        

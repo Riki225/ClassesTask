@@ -13,13 +13,13 @@ namespace Task1
             Cookie1.features();
             
             Cookie Cookie2 = new Cookie(36, "Square", GreenMint);
-            Cookie1.features();
+            Cookie2.features();
 
             Cookie Cookie3 = new Cookie(36, "Rectangle", BlueChuckle);
-            Cookie1.features();
+            Cookie3.features();
             
             Cookie Cookie4 = new Cookie(36, "Triangle", GreenMint);
-            Cookie1.features();
+            Cookie4.features();
         }
     }
 }
