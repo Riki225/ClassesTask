@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Task2
 {
@@ -9,14 +10,18 @@ namespace Task2
         public DateTime DOB;
         public DateTime dateonly;
         public int Height;
+        public int Id;
+        public Subject StuSubject;
         
-        public Person(string firstname, string lastname, DateTime dob, int height)
+        public Person(string firstname, string lastname, DateTime dob, int height, int id)
         {
             this.FirstName = firstname;
             this.LastName = lastname;
             this.DOB = dob;
             dateonly = DOB.Date;
             this.Height = height;
+            this.Id = id;
+            
         }
 
         public void GetFullName()
@@ -26,55 +31,75 @@ namespace Task2
         
         public void GetHeightDifference()
         {
-            int person1 = 0;
+            int person1 = Height;
             int person2 = 0;
+            int person3 = 0;
 
-            int p1 = 0;
-            int p2 = 0;
+            if(person1 == 172)
+            {
+                person2 = 166;
+                person3 = 192;
+            }
+            else if(person1 == 166)
+            {   
+                person2 = 172;
+                person3 = 192;
+            }
+            else if(person1 == 192)
+            {
+                person2 = 172;
+                person3 = 166;
+            }
+            int heightdiff1 = (person1 - person2);
+            int heightdiff2 = (person1 - person3);
 
-            Console.WriteLine("Please Select A Person");
-            Console.WriteLine("(1) David");
-            Console.WriteLine("(2) Gavin");
-            Console.WriteLine("(3) Oliver");
-            person1 = int.Parse(Console.ReadLine());
-            
-            if(person1 == 1)
-            {
-                p1 = David.Height;
-            }
-            else if(person1 == 2)
-            {
-                p1 = Gavin.Height;
-            }
-            else if(person1 == 3)
-            {
-                p1 = Oliver.Height;
-            }
+            string p1 = FirstName;
+            string p2 = "p2";
+            string p3 = "p3";
 
-            Console.WriteLine("Please Select Another Person");
-            Console.WriteLine("(1) David");
-            Console.WriteLine("(2) Gavin");
-            Console.WriteLine("(3) Oliver");
-            person2 = int.Parse(Console.ReadLine());
-            
-            if(person2 == 1)
+            if(p1 == "David")
             {
-                p2 = David.Height;
+                p2 = "Gavin";
+                p3 = "Oliver";
             }
-            else if(person1 == 2)
-            {
-                p2 = Gavin.Height;
+            else if(p1 == "Gavin")
+            {   
+                p2 = "David";
+                p3 = "Oliver";
             }
-            else if(person1 == 3)
+            else if(p1 == "Oliver")
             {
-                p2 = Oliver.Height;
+                p2 = "David";
+                p3 = "Gavin";
             }
 
-            int HeightDiff = p1 - p2;
-            Console.WriteLine(HeightDiff);
+            Console.WriteLine($"Height Difference Between {p2} = {heightdiff1}");
+            Console.WriteLine($"Height Difference Between {p3} = {heightdiff2}");
+        }
 
-            
-        
+        public void printID()
+        {
+            Console.WriteLine($"Student ID: {Id}");
+        }
+
+        public void AddSubject()
+        {
+            List<string> subjectList = new List<string>();
+            string userInput = "s";
+            Console.WriteLine("Please Enter A Subject To The Student's List. (Enter 'stop' When Finished.)");
+            while (userInput != "stop")
+            {
+                userInput = Console.ReadLine();
+                subjectList.Add(userInput);
+                subjectList.Remove("stop");
+            }
+
+            Console.Write("Undertaking Subjects: ");
+
+            foreach (string s in subjectList)
+            {
+                Console.Write($"{s}, ");
+            }
         }
     }
 }
